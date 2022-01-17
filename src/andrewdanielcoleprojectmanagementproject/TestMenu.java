@@ -28,10 +28,20 @@ public class TestMenu extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btngroupAnswerOptions = new javax.swing.ButtonGroup();
         btnMainMenu = new javax.swing.JButton();
+        btnQuestion = new javax.swing.JLabel();
+        radOptionOne = new javax.swing.JRadioButton();
+        radOptionTwo = new javax.swing.JRadioButton();
+        radOptionThree = new javax.swing.JRadioButton();
+        radOptionFour = new javax.swing.JRadioButton();
+        jProgressBar1 = new javax.swing.JProgressBar();
+        lblNumQuestion = new javax.swing.JLabel();
+        btnNext = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        btnMainMenu.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnMainMenu.setText("Back");
         btnMainMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -39,21 +49,76 @@ public class TestMenu extends javax.swing.JFrame {
             }
         });
 
+        btnQuestion.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        btnQuestion.setText("Question");
+
+        btngroupAnswerOptions.add(radOptionOne);
+        radOptionOne.setText("option1");
+
+        btngroupAnswerOptions.add(radOptionTwo);
+        radOptionTwo.setText("option2");
+
+        btngroupAnswerOptions.add(radOptionThree);
+        radOptionThree.setText("option3");
+
+        btngroupAnswerOptions.add(radOptionFour);
+        radOptionFour.setText("option4");
+
+        lblNumQuestion.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        lblNumQuestion.setText("Question: 1/10");
+
+        btnNext.setText("Next");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnMainMenu)
-                .addContainerGap(335, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnQuestion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(radOptionFour)
+                                    .addComponent(radOptionThree)
+                                    .addComponent(radOptionTwo)
+                                    .addComponent(radOptionOne))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(lblNumQuestion, javax.swing.GroupLayout.DEFAULT_SIZE, 126, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnMainMenu)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnNext)
+                        .addGap(68, 68, 68))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(btnMainMenu)
-                .addContainerGap(256, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnQuestion, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(radOptionOne)
+                .addGap(18, 18, 18)
+                .addComponent(radOptionTwo)
+                .addGap(18, 18, 18)
+                .addComponent(radOptionThree)
+                .addGap(18, 18, 18)
+                .addComponent(radOptionFour)
+                .addGap(49, 49, 49)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnMainMenu)
+                    .addComponent(btnNext))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblNumQuestion, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                    .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         pack();
@@ -71,5 +136,14 @@ public class TestMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMainMenu;
+    private javax.swing.JButton btnNext;
+    private javax.swing.JLabel btnQuestion;
+    private javax.swing.ButtonGroup btngroupAnswerOptions;
+    private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JLabel lblNumQuestion;
+    private javax.swing.JRadioButton radOptionFour;
+    private javax.swing.JRadioButton radOptionOne;
+    private javax.swing.JRadioButton radOptionThree;
+    private javax.swing.JRadioButton radOptionTwo;
     // End of variables declaration//GEN-END:variables
 }
