@@ -4,8 +4,6 @@ Main Menu Window for the Project Management Project
  */
 package andrewdanielcoleprojectmanagementproject;
 
-import static andrewdanielcoleprojectmanagementproject.TestMenu.numQuestion;
-import static andrewdanielcoleprojectmanagementproject.TestMenu.qz;
 
 /**
  *
@@ -108,7 +106,6 @@ public class MainMenu extends javax.swing.JFrame {
         if(testMenu == null){ // if the test menu isn't made yet
             testMenu = new TestMenu(this); // creates it
         }
-        TestMenu.numQuestion = 0;
         testMenu.setVisible(true); // makes it visible
         this.setVisible(false); // makes this window not visible
     }//GEN-LAST:event_btnTestMenuActionPerformed
