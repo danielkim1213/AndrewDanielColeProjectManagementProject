@@ -1,0 +1,24 @@
+A System is: A combination of software and hardware that provides a solution for a business problem
+
+The Software Development Life Cycle (SDLC): splits the software development process into multiple steps
+It allows the developers to outline each task required to build a software application and plan out how they will design, test, and maintain that application
+
+One model of the software development life cycle is the waterfall model, developed by Dr Winston Royce in 1970
+The waterfall method consists of the following steps:
+Analysis
+Design
+Implementation
+Testing
+Deployment
+Maintenance
+
+If mistakes are found, it is least costly to fix them in the analysis phase and most costly in the maintenance phase
+The SDLC process helps to plan out software fully and find bugs before the maintenance phase
+
+Some examples of project management tools include: Gantt charts, Unified Modeling Language (UML), daily logs, and weekly reports
+
+The Gantt Chart is a chart that lays out and tracks the progress of projects
+It was designed by Henry Gantt in the 1910s
+
+Unified Modeling Language (UML) is a tool to visualize specific parts of a system
+It can be easier to describe and design complex software through UML than in writing
