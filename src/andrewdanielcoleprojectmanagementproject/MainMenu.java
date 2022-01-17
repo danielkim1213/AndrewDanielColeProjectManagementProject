@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+December 17th 2021 Andrew, Cole, Daniel
+Main Menu Window for the Project Management Project
  */
 package andrewdanielcoleprojectmanagementproject;
 
@@ -33,6 +32,8 @@ public class MainMenu extends javax.swing.JFrame {
         btnTestMenu = new javax.swing.JButton();
         btnStudyMenu = new javax.swing.JButton();
         btnExit = new javax.swing.JButton();
+        txtTitle = new javax.swing.JLabel();
+        txtCreators = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,52 +58,69 @@ public class MainMenu extends javax.swing.JFrame {
             }
         });
 
+        txtTitle.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txtTitle.setText("Software Devolopment Life Cycle Study Program");
+
+        txtCreators.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        txtCreators.setText("Created By: Andrew, Cole, Daniel");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(btnTestMenu)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
-                .addComponent(btnExit)
-                .addGap(60, 60, 60)
-                .addComponent(btnStudyMenu)
-                .addGap(47, 47, 47))
+                .addGap(68, 68, 68)
+                .addComponent(txtCreators)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(txtTitle)
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(btnTestMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(57, 57, 57)
+                .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnStudyMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(222, Short.MAX_VALUE)
+                .addGap(25, 25, 25)
+                .addComponent(txtTitle)
+                .addGap(30, 30, 30)
+                .addComponent(txtCreators)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnTestMenu)
-                    .addComponent(btnStudyMenu)
-                    .addComponent(btnExit))
-                .addGap(55, 55, 55))
+                    .addComponent(btnTestMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnExit, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnStudyMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(79, 79, 79))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTestMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTestMenuActionPerformed
-        if(testMenu == null){
-            testMenu = new TestMenu(this);
+        if(testMenu == null){ // if the test menu isn't made yet
+            testMenu = new TestMenu(this); // creates it
         }
-        TestMenu.numQuestion = 0;
-        testMenu.setVisible(true);
-        this.setVisible(false);
+        testMenu.setVisible(true); // makes it visible
+        this.setVisible(false); // makes this window not visible
     }//GEN-LAST:event_btnTestMenuActionPerformed
 
     private void btnStudyMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudyMenuActionPerformed
-        if(studyMenu == null){
-            studyMenu = new StudyMenu(this);
+        if(studyMenu == null){ // if the study menu isn't made yet
+            studyMenu = new StudyMenu(this); // creates it
         }
-        studyMenu.setVisible(true);
-        this.setVisible(false);
+        studyMenu.setVisible(true); // makes it visible
+        this.setVisible(false); // turns this window invisible
     }//GEN-LAST:event_btnStudyMenuActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        System.exit(0);
+        System.exit(0); // stops the program
     }//GEN-LAST:event_btnExitActionPerformed
 
     /**
@@ -144,5 +162,7 @@ public class MainMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnStudyMenu;
     private javax.swing.JButton btnTestMenu;
+    private javax.swing.JLabel txtCreators;
+    private javax.swing.JLabel txtTitle;
     // End of variables declaration//GEN-END:variables
 }
