@@ -21,11 +21,17 @@ public class TestResult extends javax.swing.JFrame {
     
     private void showResult()
     {
+        int correct = 0;
         txaResult.setText("");
         for(int i=0; i<10; i++)
         {
+            if(TestMenu.qz[i].checkAnswer())
+            {
+                correct++;
+            }
             txaResult.append(TestMenu.qz[i].toString() + "\n");
         }
+        txaResult.append("Your quiz mark: " + correct*10 + "%");
     }
     
 
