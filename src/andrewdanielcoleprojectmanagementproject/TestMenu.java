@@ -39,15 +39,16 @@ public class TestMenu extends javax.swing.JFrame {
                 }
                 answer = Integer.parseInt(scan.nextLine());
                 
-                qz[n] = new Quiz(n+1, question, answerOptions, answer);
+                qz[n] = new Quiz(n+1, question, answerOptions.clone(), answer);
             }
         }catch(FileNotFoundException e)
         {
             System.out.print(e);
         }
+        display();
     }
     
-    public static void display() 
+    public void display() 
     {
         int numQ = qz[numQuestion].getNumQuestion();
         btnQuestion.setText(qz[numQuestion].getNumQuestion() + ". " + qz[numQuestion].getQuestion());
@@ -98,6 +99,11 @@ public class TestMenu extends javax.swing.JFrame {
         btnNext = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         btnMainMenu.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnMainMenu.setText("menu");
@@ -236,6 +242,10 @@ public class TestMenu extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnNextActionPerformed
 
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        display();
+    }//GEN-LAST:event_formWindowActivated
+
     /**
      * @param args the command line arguments
      */
@@ -243,14 +253,14 @@ public class TestMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMainMenu;
-    private static javax.swing.JButton btnNext;
-    private static javax.swing.JLabel btnQuestion;
+    private javax.swing.JButton btnNext;
+    private javax.swing.JLabel btnQuestion;
     private javax.swing.ButtonGroup btngroupAnswerOptions;
-    private static javax.swing.JLabel lblNumQuestion;
-    private static javax.swing.JProgressBar prgNumQuestion;
-    private static javax.swing.JRadioButton radOptionFour;
-    private static javax.swing.JRadioButton radOptionOne;
-    private static javax.swing.JRadioButton radOptionThree;
-    private static javax.swing.JRadioButton radOptionTwo;
+    private javax.swing.JLabel lblNumQuestion;
+    private javax.swing.JProgressBar prgNumQuestion;
+    private javax.swing.JRadioButton radOptionFour;
+    private javax.swing.JRadioButton radOptionOne;
+    private javax.swing.JRadioButton radOptionThree;
+    private javax.swing.JRadioButton radOptionTwo;
     // End of variables declaration//GEN-END:variables
 }

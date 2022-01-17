@@ -1,58 +1,58 @@
-question
+What is the final step of SDLC?
+analysis
+implementation
+testing
+maintenance
+4
+In which step costs the least when correcting the mistakes?
+Design
+Analysis
+Implementation
+Integragtion
+2
+What's the name of the SDLC method that Dr. Winston Royce created in 1970?
+Waterfall Model
+Waterfountain Model
+Watergun Model
+Water molecule Model
+1
+Which phase of the software development process is the most expensive?
+Design
+Implementation
+Integration
+Maintenance
+4
+Which of the following is not a project Management Tool?
+Gantt Chart
+UML(Unified Modeling Language)
+DailyTech
+Weekly Reports
+3
+question6
 option
 option
 option
 option
 3
-question
+question7
 option
 option
 option
 option
 3
-question
+question8
 option
 option
 option
 option
 3
-question
+question9
 option
 option
 option
 option
 3
-question
-option
-option
-option
-option
-3
-question
-option
-option
-option
-option
-3
-question
-option
-option
-option
-option
-3
-question
-option
-option
-option
-option
-3
-question
-option
-option
-option
-option
-3
-question
+question10
 option
 option
 option

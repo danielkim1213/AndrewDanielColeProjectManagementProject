@@ -89,7 +89,6 @@ public class MainMenu extends javax.swing.JFrame {
             testMenu = new TestMenu(this);
         }
         TestMenu.numQuestion = 0;
-        TestMenu.display();
         testMenu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnTestMenuActionPerformed

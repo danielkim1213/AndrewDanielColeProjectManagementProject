@@ -17,7 +17,6 @@ public class TestResult extends javax.swing.JFrame {
     public TestResult(MainMenu m) {
         initComponents();
         mainMenu = m;
-        showResult();
     }
     
     private void showResult()
@@ -45,6 +44,11 @@ public class TestResult extends javax.swing.JFrame {
         btnMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowActivated(java.awt.event.WindowEvent evt) {
+                formWindowActivated(evt);
+            }
+        });
 
         txaResult.setColumns(20);
         txaResult.setRows(5);
@@ -94,6 +98,10 @@ public class TestResult extends javax.swing.JFrame {
         mainMenu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnMenuActionPerformed
+
+    private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
+        showResult();
+    }//GEN-LAST:event_formWindowActivated
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
