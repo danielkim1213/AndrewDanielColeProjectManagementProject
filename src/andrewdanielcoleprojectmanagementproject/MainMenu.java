@@ -36,6 +36,7 @@ public class MainMenu extends javax.swing.JFrame {
         txtCreators = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         btnTestMenu.setText("Test");
         btnTestMenu.addActionListener(new java.awt.event.ActionListener() {
@@ -107,6 +108,7 @@ public class MainMenu extends javax.swing.JFrame {
         if(testMenu == null){ // if the test menu isn't made yet
             testMenu = new TestMenu(this); // creates it
         }
+        TestMenu.numQuestion = 0;
         testMenu.setVisible(true); // makes it visible
         this.setVisible(false); // makes this window not visible
     }//GEN-LAST:event_btnTestMenuActionPerformed
