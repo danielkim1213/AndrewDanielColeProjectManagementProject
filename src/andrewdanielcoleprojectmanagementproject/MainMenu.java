@@ -5,6 +5,9 @@
  */
 package andrewdanielcoleprojectmanagementproject;
 
+import static andrewdanielcoleprojectmanagementproject.TestMenu.numQuestion;
+import static andrewdanielcoleprojectmanagementproject.TestMenu.qz;
+
 /**
  *
  * @author colem
@@ -85,6 +88,8 @@ public class MainMenu extends javax.swing.JFrame {
         if(testMenu == null){
             testMenu = new TestMenu(this);
         }
+        TestMenu.numQuestion = 0;
+        TestMenu.display();
         testMenu.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_btnTestMenuActionPerformed

@@ -15,7 +15,7 @@ public class Quiz {
     private String question;
     private int numQuestion;
     private int answer;
-    private String ansDescription;
+    private int userAnswer = 0;
     private String[] answerOptions = new String[4];
     
     
@@ -27,10 +27,10 @@ public class Quiz {
         this.answer = answer;
     }
     
-    public Quiz(int numQuestion, String question, String[] answerOptions, int answer, String ansDescription)
+    public Quiz(int numQuestion, String question, String[] answerOptions, int answer, int userAnswer)
     {
         this(numQuestion, question, answerOptions, answer);
-        this.ansDescription = ansDescription;
+        this.userAnswer = userAnswer;
     }
     
     public String getQuestion()
@@ -58,17 +58,17 @@ public class Quiz {
         return answer;
     }
     
-    public void setAnsDescription(String ansDescription)
+    public void setUserAnswer(int userAnswer)
     {
-        this.ansDescription = ansDescription;
+        this.userAnswer = userAnswer;
     }
     
-    public String getAnsDescription()
+    public int getUserAnswer()
     {
-        return ansDescription;
+        return userAnswer;
     }
     
-    public boolean checkAnswer(int userAnswer)
+    public boolean checkAnswer()
     {
         if(userAnswer == answer)
         {
@@ -82,7 +82,17 @@ public class Quiz {
     
     public String toString()
     {
-        return "Question: " + question + "\nQuestion #" + numQuestion + "\nAnswer: " + answer + "." + answerOptions[answer-1] + "\nAnswer Description: " + ansDescription;
+        String status = "Correct";
+        if(this.checkAnswer())
+        {
+            status = "Correct!";
+        }
+        else
+        {
+            status = "Wrong!";
+        }
+        
+        return "Q" + numQuestion +". " + question + "\nAnswer: " + answer + ". " + answerOptions[answer-1] + "\nYour answer: " + userAnswer + ". " + answerOptions[userAnswer-1] + "\n" + status + "\n";
     }
 
 }

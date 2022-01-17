@@ -7,6 +7,7 @@ package andrewdanielcoleprojectmanagementproject;
 
 import java.io.*;
 import java.util.*;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,19 +15,20 @@ import java.util.*;
  */
 public class TestMenu extends javax.swing.JFrame {
     MainMenu mainMenu;
+    private TestResult testResult;
+    public static int numQuestion;
+    public static Quiz[] qz = new Quiz[10];
     
     private void scanFile()
     {
-        Quiz[] qz = new Quiz[10];
+        
         try{
             File file = new File("src/andrewdanielcoleprojectmanagementproject/questions & answers.txt");
             Scanner scan = new Scanner(file);
             
             String question;
             int answer;
-            String ansDescription;
             String[] answerOptions = new String[4];
-            int numQuestion;
             
             for(int n=0; n<10; n++)
             {
@@ -36,27 +38,23 @@ public class TestMenu extends javax.swing.JFrame {
                     answerOptions[i] = scan.nextLine();
                 }
                 answer = Integer.parseInt(scan.nextLine());
-                ansDescription = scan.nextLine();
                 
-                numQuestion = n+1;
-                
-                qz[n] = new Quiz(numQuestion, question, answerOptions, answer, ansDescription);
+                qz[n] = new Quiz(n+1, question, answerOptions, answer);
             }
         }catch(FileNotFoundException e)
         {
             System.out.print(e);
         }
-        display(qz[0]);
     }
     
-    private void display(Quiz qz) 
+    public static void display() 
     {
-        int numQ = qz.getNumQuestion();
-        btnQuestion.setText(qz.getQuestion());
-        radOptionOne.setText(qz.getAnswerOption(1));
-        radOptionTwo.setText(qz.getAnswerOption(2));
-        radOptionThree.setText(qz.getAnswerOption(3));
-        radOptionFour.setText(qz.getAnswerOption(4));
+        int numQ = qz[numQuestion].getNumQuestion();
+        btnQuestion.setText(qz[numQuestion].getNumQuestion() + ". " + qz[numQuestion].getQuestion());
+        radOptionOne.setText(qz[numQuestion].getAnswerOption(1));
+        radOptionTwo.setText(qz[numQuestion].getAnswerOption(2));
+        radOptionThree.setText(qz[numQuestion].getAnswerOption(3));
+        radOptionFour.setText(qz[numQuestion].getAnswerOption(4));
         prgNumQuestion.setValue((numQ*10));
         lblNumQuestion.setText("Question: " + numQ + "/10");
         
@@ -64,9 +62,14 @@ public class TestMenu extends javax.swing.JFrame {
         {
             btnNext.setText("Done");
         }
+        else
+        {
+            btnNext.setText("Next");
+        }
     }
     /**
      * Creates new form TestMenu
+     * @param m
      */
     public TestMenu(MainMenu m) {
         initComponents();
@@ -97,7 +100,7 @@ public class TestMenu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         btnMainMenu.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
-        btnMainMenu.setText("Back");
+        btnMainMenu.setText("menu");
         btnMainMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMainMenuActionPerformed(evt);
@@ -109,6 +112,7 @@ public class TestMenu extends javax.swing.JFrame {
 
         btngroupAnswerOptions.add(radOptionOne);
         radOptionOne.setFont(new java.awt.Font("Arial", 0, 13)); // NOI18N
+        radOptionOne.setSelected(true);
         radOptionOne.setText("option1");
 
         btngroupAnswerOptions.add(radOptionTwo);
@@ -128,6 +132,11 @@ public class TestMenu extends javax.swing.JFrame {
 
         btnNext.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         btnNext.setText("Next");
+        btnNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNextActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -189,6 +198,44 @@ public class TestMenu extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_btnMainMenuActionPerformed
 
+    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
+        int userAnswer = 0;
+        
+        if(radOptionOne.isSelected())
+        {
+            userAnswer = 1;
+        }
+        else if(radOptionTwo.isSelected())
+        {
+            userAnswer = 2;
+        }
+        else if(radOptionThree.isSelected())
+        {
+            userAnswer = 3;
+        }
+        else if(radOptionFour.isSelected())
+        {
+            userAnswer = 4;
+        }
+        
+        qz[numQuestion].setUserAnswer(userAnswer);
+        numQuestion++;
+        
+        if(numQuestion > 9)
+        {
+            if(testResult == null)
+            {
+                testResult = new TestResult(mainMenu);
+            }
+            testResult.setVisible(true);
+            this.setVisible(false);
+        }
+        else
+        {
+            display();
+        }
+    }//GEN-LAST:event_btnNextActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -196,14 +243,14 @@ public class TestMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMainMenu;
-    private javax.swing.JButton btnNext;
-    private javax.swing.JLabel btnQuestion;
+    private static javax.swing.JButton btnNext;
+    private static javax.swing.JLabel btnQuestion;
     private javax.swing.ButtonGroup btngroupAnswerOptions;
-    private javax.swing.JLabel lblNumQuestion;
-    private javax.swing.JProgressBar prgNumQuestion;
-    private javax.swing.JRadioButton radOptionFour;
-    private javax.swing.JRadioButton radOptionOne;
-    private javax.swing.JRadioButton radOptionThree;
-    private javax.swing.JRadioButton radOptionTwo;
+    private static javax.swing.JLabel lblNumQuestion;
+    private static javax.swing.JProgressBar prgNumQuestion;
+    private static javax.swing.JRadioButton radOptionFour;
+    private static javax.swing.JRadioButton radOptionOne;
+    private static javax.swing.JRadioButton radOptionThree;
+    private static javax.swing.JRadioButton radOptionTwo;
     // End of variables declaration//GEN-END:variables
 }
