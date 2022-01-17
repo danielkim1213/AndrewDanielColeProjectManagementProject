@@ -5,6 +5,10 @@
  */
 package andrewdanielcoleprojectmanagementproject;
 
+import java.io.InputStream;
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author colem
@@ -16,9 +20,25 @@ public class StudyMenu extends javax.swing.JFrame {
      */
     public StudyMenu(MainMenu m) {
         initComponents();
+        loadFile();
         mainMenu = m;
+        
     }
 
+    private void loadFile() {
+        String notes = "";
+        try {
+            InputStream in = StudyMenu.class.getResourceAsStream("studynotes.txt");
+        Scanner s = new Scanner(in);
+        while (s.hasNextLine()) {
+            notes += s.nextLine() + "\n";
+        }
+        txtNotes.setText(notes);
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error: file not found");
+        }
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -29,6 +49,8 @@ public class StudyMenu extends javax.swing.JFrame {
     private void initComponents() {
 
         btnMainMenu = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtNotes = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -39,21 +61,32 @@ public class StudyMenu extends javax.swing.JFrame {
             }
         });
 
+        txtNotes.setEditable(false);
+        txtNotes.setColumns(20);
+        txtNotes.setRows(5);
+        jScrollPane1.setViewportView(txtNotes);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(btnMainMenu)
-                .addContainerGap(335, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnMainMenu)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(28, 28, 28)
                 .addComponent(btnMainMenu)
-                .addContainerGap(249, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -70,5 +103,7 @@ public class StudyMenu extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnMainMenu;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea txtNotes;
     // End of variables declaration//GEN-END:variables
 }
