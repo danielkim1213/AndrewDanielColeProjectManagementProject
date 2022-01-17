@@ -1,21 +1,33 @@
+Which of the following is a question for measuring successful project?
+Does the project solve what it was meant to solve?
+Is there a successful support system in place for the client?
+Is it scalable to meet the needs of the client?
+All of the above
+4
 What is the final step of SDLC?
 analysis
 implementation
 testing
 maintenance
 4
-In which step costs the least when correcting the mistakes?
-Design
-Analysis
-Implementation
-Integragtion
-2
 What's the name of the SDLC method that Dr. Winston Royce created in 1970?
 Waterfall Model
 Waterfountain Model
 Watergun Model
 Water molecule Model
 1
+What is the certified output of a phase that is released for the best phase in the model?
+baseline
+basecase
+intermediate products
+design document
+1
+In which step costs the least when correcting the mistakes?
+Design
+Analysis
+Implementation
+Integragtion
+2
 Which phase of the software development process is the most expensive?
 Design
 Implementation
@@ -24,28 +36,16 @@ Maintenance
 4
 Which of the following is not a project Management Tool?
 Gantt Chart
-UML(Unified Modeling Language)
+UML
 DailyTech
 Weekly Reports
 3
-question6
-option
-option
-option
-option
-3
-question7
-option
-option
-option
-option
-3
-question8
-option
-option
-option
-option
-3
+Which of the following stands for UML?
+Unified Modeling Logo
+Unified Modern Language
+Undefined Modeling Language
+Unified Modeling Language
+4
 question9
 option
 option
