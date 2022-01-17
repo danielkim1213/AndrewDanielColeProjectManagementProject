@@ -40,21 +40,21 @@ UML
 DailyTech
 Weekly Reports
 3
+Gantt Chart are usually used by people working on 
+simple project
+personal project
+large project
+none of the above
+3
+What is a tool to visualize specific parts of a system?
+URL
+UML
+UAL
+USL
+2
 Which of the following stands for UML?
 Unified Modeling Logo
 Unified Modern Language
 Undefined Modeling Language
 Unified Modeling Language
 4
-question9
-option
-option
-option
-option
-3
-question10
-option
-option
-option
-option
-3
