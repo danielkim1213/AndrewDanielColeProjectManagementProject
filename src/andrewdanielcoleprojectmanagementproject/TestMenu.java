@@ -225,8 +225,11 @@ public class TestMenu extends javax.swing.JFrame {
             userAnswer = 4;
         }
         
-        qz[numQuestion].setUserAnswer(userAnswer);
-        numQuestion++;
+        if (numQuestion <= 9)
+        {
+            qz[numQuestion].setUserAnswer(userAnswer);
+            numQuestion++;
+        }
         
         if(numQuestion > 9)
         {
