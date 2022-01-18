@@ -1,13 +1,12 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+December 17th 2021 Andrew, Cole, Daniel
+Test Menu Window for the Project Management Project
+It tests the user with ten multiple choice questions so that she can test her knowledge of SDLC
  */
 package andrewdanielcoleprojectmanagementproject;
 
 import java.io.*;
 import java.util.*;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -16,56 +15,60 @@ import javax.swing.JOptionPane;
 public class TestMenu extends javax.swing.JFrame {
     MainMenu mainMenu;
     private TestResult testResult;
-    public static int numQuestion;
-    public static Quiz[] qz = new Quiz[10];
+    public static int numQuestion; 
+    public static Quiz[] qz = new Quiz[10]; //Array of the Quiz object, length = 10
     
+    /**
+     * This method scans the file that contains questions and answers, and save them in the Quiz Array.
+     */
     private void scanFile()
     {
-        
         try{
-            File file = new File("src/andrewdanielcoleprojectmanagementproject/questions & answers.txt");
-            Scanner scan = new Scanner(file);
+            File file = new File("src/andrewdanielcoleprojectmanagementproject/questions & answers.txt"); //find the file
+            Scanner scan = new Scanner(file); //Scanner object that will scan the file
             
-            String question;
+            String question; 
             int answer;
-            String[] answerOptions = new String[4];
+            String[] answerOptions = new String[4]; //String array that will contain the answer options of MC questions
             
-            for(int n=0; n<10; n++)
+            for(int n=0; n<10; n++) //loop 10 times since the test will have 10 questions
             {
-                question = scan.nextLine();
-                for(int i=0; i<4; i++)
+                question = scan.nextLine(); //scan question
+                for(int i=0; i<4; i++) //loop 4 times since a question will have 4 multiple choice options
                 {
-                    answerOptions[i] = scan.nextLine();
+                    answerOptions[i] = scan.nextLine(); //scan answer options
                 }
-                answer = Integer.parseInt(scan.nextLine());
+                answer = Integer.parseInt(scan.nextLine()); //scan the correct answer
                 
-                qz[n] = new Quiz(n+1, question, answerOptions.clone(), answer);
+                qz[n] = new Quiz(n+1, question, answerOptions.clone(), answer); //instantiate new Quiz object and save it in qz array.
             }
-        }catch(FileNotFoundException e)
+        }catch(FileNotFoundException e) //if the program cannot find the file
         {
-            System.out.print(e);
+            System.out.print(e); //print the error
         }
-        display();
     }
     
+    /**
+     * This method displays a question and answer options on the JFrame.
+     */
     public void display() 
     {
-        int numQ = qz[numQuestion].getNumQuestion();
-        btnQuestion.setText(qz[numQuestion].getNumQuestion() + ". " + qz[numQuestion].getQuestion());
-        radOptionOne.setText(qz[numQuestion].getAnswerOption(1));
-        radOptionTwo.setText(qz[numQuestion].getAnswerOption(2));
-        radOptionThree.setText(qz[numQuestion].getAnswerOption(3));
-        radOptionFour.setText(qz[numQuestion].getAnswerOption(4));
-        prgNumQuestion.setValue((numQ*10));
-        lblNumQuestion.setText("Question: " + numQ + "/10");
+        int numQ = qz[numQuestion].getNumQuestion(); //numQ is numQuestion+1. It's because numQuestion is the index of qz array (0~9), while numQ is the actual question number(1~10)
+        btnQuestion.setText(numQ + ". " + qz[numQuestion].getQuestion());  // display the question number and the question
+        radOptionOne.setText(qz[numQuestion].getAnswerOption(1)); //display the answer option 1 of the question
+        radOptionTwo.setText(qz[numQuestion].getAnswerOption(2)); //display the answer option 2 of the question
+        radOptionThree.setText(qz[numQuestion].getAnswerOption(3)); //display the answer option 3 of the question
+        radOptionFour.setText(qz[numQuestion].getAnswerOption(4)); //display the answer option 4 of the question
+        prgNumQuestion.setValue((numQ*10)); //setValue of the progress bar so that the user can see the progress percentage easily
+        lblNumQuestion.setText("Question: " + numQ + "/10"); //tells which question the user is in
         
-        if(numQ == 10)
+        if(numQ == 10) //check if the question number is 10
         {
-            btnNext.setText("Done");
+            btnNext.setText("Done"); //change the button text "Next" to "Done"
         }
-        else
+        else // if it is below 10
         {
-            btnNext.setText("Next");
+            btnNext.setText("Next"); //change the button text "Done" to "Next"
         }
     }
     /**
@@ -74,8 +77,8 @@ public class TestMenu extends javax.swing.JFrame {
      */
     public TestMenu(MainMenu m) {
         initComponents();
-        mainMenu = m;
-        scanFile();
+        mainMenu = m; //set main menu
+        scanFile(); //scans the file
     }
 
     /**
@@ -199,55 +202,65 @@ public class TestMenu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    /**
+     * If the user click the main menu button.
+     * @param evt - click the main menu button
+     */
     private void btnMainMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMainMenuActionPerformed
-        mainMenu.setVisible(true);
-        this.setVisible(false);
+        mainMenu.setVisible(true); //open main menu
+        this.setVisible(false); //set this form invisible
     }//GEN-LAST:event_btnMainMenuActionPerformed
-
+    /**
+     * When the Next button is pressed
+     * @param evt - Next button is pressed
+     */
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        int userAnswer = 0;
+        int userAnswer = 0; 
         
-        if(radOptionOne.isSelected())
+        if(radOptionOne.isSelected()) //if the user select the first option
         {
-            userAnswer = 1;
+            userAnswer = 1; 
         }
-        else if(radOptionTwo.isSelected())
+        else if(radOptionTwo.isSelected())//if the user select the second option
         {
             userAnswer = 2;
         }
-        else if(radOptionThree.isSelected())
+        else if(radOptionThree.isSelected())//if the user select the third option
         {
             userAnswer = 3;
         }
-        else if(radOptionFour.isSelected())
+        else if(radOptionFour.isSelected())//if the user select the fourth option
         {
             userAnswer = 4;
         }
         
-        if (numQuestion <= 9)
+        if (numQuestion <= 9) //if the question number is below or equal to 9 
         {
-            qz[numQuestion].setUserAnswer(userAnswer);
-            numQuestion++;
+            qz[numQuestion].setUserAnswer(userAnswer); //save the user answer in the object
+            numQuestion++; //increase the question number by 1
         }
         
-        if(numQuestion > 9)
+        if(numQuestion > 9) //if the question number is out of the range (= over 9)
         {
-            if(testResult == null)
+            if(testResult == null) // if the result menu isn't made yet
             {
-                testResult = new TestResult(mainMenu);
+                testResult = new TestResult(mainMenu); //creates it
             }
-            testResult.setVisible(true);
-            this.setVisible(false);
+            testResult.setVisible(true); //make it visible
+            this.setVisible(false); //make this window invisible
         }
-        else
+        else // if the question number is not out of the range (= below or equal to 9)
         {
-            display();
+            display(); //display the question
         }
     }//GEN-LAST:event_btnNextActionPerformed
-
+    /**
+     * if this window is activated (visible)
+     * @param evt 
+     */
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        display();
+        numQuestion = 0;  //initialize the question number
+        display(); //display it
     }//GEN-LAST:event_formWindowActivated
 
     /**
