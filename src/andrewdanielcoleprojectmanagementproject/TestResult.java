@@ -1,6 +1,7 @@
 /*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+Test result window that shows the answers to all the questions.
+As well as the score that you got on the quiz.
+Is opened once you press the done button on the quiz.
  */
 package andrewdanielcoleprojectmanagementproject;
 
@@ -22,16 +23,16 @@ public class TestResult extends javax.swing.JFrame {
     private void showResult()
     {
         int correct = 0;
-        txaResult.setText("");
-        for(int i=0; i<10; i++)
+        txaResult.setText(""); // Clears text field incase of text from an earlier try of the quiz
+        for(int i=0; i<10; i++) // loops 10 times
         {
-            if(TestMenu.qz[i].checkAnswer())
+            if(TestMenu.qz[i].checkAnswer()) // calls the check answer method in the quiz class to see if the user answer was correct or not
             {
-                correct++;
+                correct++; // if correct increases the correct integer to calculate the percentage of answers you got correct
             }
-            txaResult.append(TestMenu.qz[i].toString() + "\n");
+            txaResult.append(TestMenu.qz[i].toString() + "\n"); // Adds the output of the toString method to the text area
         }
-        txaResult.append("Your quiz mark: " + correct*10 + "%");
+        txaResult.append("Your quiz mark: " + correct*10 + "%"); // After the 10 answers are added it then adds the percent that you got on the quiz
     }
     
 
@@ -106,7 +107,7 @@ public class TestResult extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMenuActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        showResult();
+        showResult(); // When window is opened calls the showResult method
     }//GEN-LAST:event_formWindowActivated
 
 
