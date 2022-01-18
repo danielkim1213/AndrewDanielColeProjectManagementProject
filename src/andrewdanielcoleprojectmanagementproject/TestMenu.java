@@ -7,11 +7,9 @@ package andrewdanielcoleprojectmanagementproject;
 
 import java.io.*;
 import java.util.*;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author colem
- */
+
 public class TestMenu extends javax.swing.JFrame {
     MainMenu mainMenu;
     private TestResult testResult;
@@ -24,7 +22,7 @@ public class TestMenu extends javax.swing.JFrame {
     private void scanFile()
     {
         try{
-            File file = new File("src/andrewdanielcoleprojectmanagementproject/questions & answers.txt"); //find the file
+            InputStream file = StudyMenu.class.getResourceAsStream("questions & answers.txt"); //find the file
             Scanner scan = new Scanner(file); //Scanner object that will scan the file
             
             String question; 
@@ -42,9 +40,9 @@ public class TestMenu extends javax.swing.JFrame {
                 
                 qz[n] = new Quiz(n+1, question, answerOptions.clone(), answer); //instantiate new Quiz object and save it in qz array.
             }
-        }catch(FileNotFoundException e) //if the program cannot find the file
+        }catch(Exception e) //if the program cannot find the file
         {
-            System.out.print(e); //print the error
+            JOptionPane.showMessageDialog(null, "Error: quiz questions file not found"); //print the error
         }
     }
     

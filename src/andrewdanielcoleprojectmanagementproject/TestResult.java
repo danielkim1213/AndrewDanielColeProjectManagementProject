@@ -1,8 +1,6 @@
 /*
-January 17 2022
-Test result window that shows the answers to all the questions.
-As well as the score that you got on the quiz.
-Is opened once you press the done button on the quiz.
+January 17th 2022 Andrew, Cole, Daniel
+Test results window for seeing your score after completeing the test
  */
 package andrewdanielcoleprojectmanagementproject;
 
@@ -21,19 +19,22 @@ public class TestResult extends javax.swing.JFrame {
         mainMenu = m;
     }
     
+    /**
+     * Method that will display the quiz results in the text field
+     */
     private void showResult()
     {
-        int correct = 0;
-        txaResult.setText(""); // Clears text field incase of text from an earlier try of the quiz
+        int correct = 0; // variable to store how many questions you got correct
+        txaResult.setText(""); // sets the text field to blank
         for(int i=0; i<10; i++) // loops 10 times
         {
-            if(TestMenu.qz[i].checkAnswer()) // calls the check answer method in the quiz class to see if the user answer was correct or not
+            if(TestMenu.qz[i].checkAnswer()) // calls the checkAnswer method of the quiz class to see if its correct or not
             {
-                correct++; // if correct increases the correct integer to calculate the percentage of answers you got correct
+                correct++; // if true increases amount of questions correct
             }
-            txaResult.append(TestMenu.qz[i].toString() + "\n"); // Adds the output of the toString method to the text area
+            txaResult.append(TestMenu.qz[i]+ "\n"); // adds the information about the question to the text field
         }
-        txaResult.append("Your quiz mark: " + correct*10 + "%"); // After the 10 answers are added it then adds the percent that you got on the quiz
+        txaResult.append("Your quiz mark: " + correct*10 + "%"); // after all 10 questions are posted it then posts how what your score on the quiz was.
     }
     
 
@@ -108,7 +109,7 @@ public class TestResult extends javax.swing.JFrame {
     }//GEN-LAST:event_btnMenuActionPerformed
 
     private void formWindowActivated(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowActivated
-        showResult(); // When window is opened calls the showResult method
+        showResult(); // When window is opened calls the show result method
     }//GEN-LAST:event_formWindowActivated
 
 
