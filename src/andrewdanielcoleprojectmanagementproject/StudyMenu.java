@@ -1,7 +1,7 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+December 17th 2021 Andrew, Cole, Daniel
+Study Menu Window for the Project Management Project
+Displays study notes read from a file to the user
  */
 package andrewdanielcoleprojectmanagementproject;
 
@@ -20,22 +20,30 @@ public class StudyMenu extends javax.swing.JFrame {
      */
     public StudyMenu(MainMenu m) {
         initComponents();
-        loadFile();
+        loadFile(); // Load the study notes file
         mainMenu = m;
         
     }
 
+    /**
+     * Loads the study notes into a String and displays it in the TextArea
+     */
     private void loadFile() {
+        // Create string to hold study notes in
         String notes = "";
         try {
+            // Create InputStream to studynotes.txt
             InputStream in = StudyMenu.class.getResourceAsStream("studynotes.txt");
-        Scanner s = new Scanner(in);
+            // Instantiate Scanner object to file InputStream
+            Scanner s = new Scanner(in);
+        // Append each line of study notes to String
         while (s.hasNextLine()) {
             notes += s.nextLine() + "\n";
         }
+        // Set text of TextArea to notes String
         txtNotes.setText(notes);
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, "Error: file not found");
+            JOptionPane.showMessageDialog(null, "Error: study notes file not found");
         }
         
     }
@@ -73,7 +81,7 @@ public class StudyMenu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 533, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 646, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnMainMenu)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -85,7 +93,7 @@ public class StudyMenu extends javax.swing.JFrame {
                 .addGap(28, 28, 28)
                 .addComponent(btnMainMenu)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 358, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 443, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
