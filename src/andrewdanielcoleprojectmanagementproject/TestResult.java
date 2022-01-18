@@ -29,7 +29,7 @@ public class TestResult extends javax.swing.JFrame {
             {
                 correct++;
             }
-            txaResult.append(TestMenu.qz[i].toString() + "\n");
+            txaResult.append(TestMenu.qz[i]+ "\n");
         }
         txaResult.append("Your quiz mark: " + correct*10 + "%");
     }

@@ -8,10 +8,7 @@ package andrewdanielcoleprojectmanagementproject;
 import java.io.*;
 import java.util.*;
 
-/**
- *
- * @author colem
- */
+
 public class TestMenu extends javax.swing.JFrame {
     MainMenu mainMenu;
     private TestResult testResult;
